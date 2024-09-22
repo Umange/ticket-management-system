@@ -1,24 +1,23 @@
-// app.js
+
 
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser'); // Alternatively, use express.json()
+const bodyParser = require('body-parser'); 
 const dotenv = require('dotenv');
-const morgan = require('morgan'); // For logging
+const morgan = require('morgan'); 
 const Ticket = require('./models/Ticket');
 
-// Load environment variables before anything else
+
 dotenv.config();
 
 const app = express();
 
-// Use morgan for logging
+
 app.use(morgan('dev'));
 
-// Middleware to parse JSON bodies
-app.use(bodyParser.json()); // Alternatively, use app.use(express.json());
+app.use(bodyParser.json()); 
 
-// Connect to MongoDB
+
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -29,10 +28,10 @@ mongoose.connect(process.env.MONGODB_URI, {
   process.exit(1);
 });
 
-// Define Ticket Schema
 
 
-// API Routes
+
+
 
 /**
  * @route   POST /tickets
@@ -149,18 +148,16 @@ app.delete('/tickets/:id', async (req, res) => {
   }
 });
 
-// Optional: Test Route to Verify Server is Working
 app.get('/test', (req, res) => {
   console.log('GET /test called');
   res.json({ message: 'Test route is working!' });
 });
 
-// Handle undefined routes (should be the last middleware)
+
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
-// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
@@ -171,14 +168,14 @@ app.get('/test', (req, res) => {
 });
 
 
-// Define API Routes
+
 app.post('/tickets', createTicketHandler);
 app.get('/tickets', getAllTicketsHandler);
 app.get('/tickets/:id', getTicketByIdHandler);
 app.put('/tickets/:id', updateTicketHandler);
 app.delete('/tickets/:id', deleteTicketHandler);
 
-// Catch-all 404 Route (Must be last)
+
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });

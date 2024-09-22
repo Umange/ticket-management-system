@@ -1,3 +1,32 @@
+# Ticket Management System
+
+A simple RESTful API for managing support tickets using Node.js, Express, and MongoDB. This system allows users to create, read, update, and delete tickets.
+
+## Features
+- Create new tickets
+- Retrieve all tickets
+- Retrieve a ticket by ID
+- Update a ticket by ID
+- Delete a ticket by ID
+
+
+
+
+--Project Structure--
+ticket-management-system/
+├── models/
+│   └── Ticket.js
+├── app.js
+├── .env
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+
+
+
+
+
 Installation
 
 Follow the steps below to set up and run the Ticket Management System on your local machine.
@@ -66,3 +95,4 @@ npm start
 
 
 "# ticket-management-system" 
+
