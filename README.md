@@ -12,16 +12,7 @@ A simple RESTful API for managing support tickets using Node.js, Express, and Mo
 
 
 
---Project Structure--
-ticket-management-system/
-├── models/
-│   └── Ticket.js
-├── app.js
-├── .env
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── README.md
+
 
 
 
